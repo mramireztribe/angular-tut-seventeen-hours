@@ -11,6 +11,7 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
 var _Employee_id;
+Object.defineProperty(exports, "__esModule", { value: true });
 class Employee {
     constructor(id, name, address) {
         _Employee_id.set(this, void 0); // # = the same as 'private id:number". Need to change to # in constructor
@@ -27,12 +28,20 @@ class Employee {
     static getEmployeeCount() {
         return 50;
     }
+    Login() {
+        return { name: "John", id: 1, email: "" };
+    }
     getNameWithAddress() {
         return `${this.name} stays at ${this.address}`;
     }
 }
 _Employee_id = new WeakMap();
-let john = new Employee(1, "John", "Highway 71");
+let john = new Employee(1, "John", {
+    street: "ABC",
+    city: "Bangalore",
+    state: "Karnataka",
+    pin: "560076"
+});
 john.EmpId = 100;
 console.log(john.EmpId);
 console.log(Employee.getEmployeeCount());
